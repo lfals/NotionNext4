@@ -20,7 +20,9 @@ export const getAllTickets = async () => {
     "Mês": ticket.properties.Mês.select.name ? ticket.properties.Mês.select.name : 'Vazio',
     "Ticket ID":  ticket.properties.Ticket.title[0].text.content,
     "Horas": ticket.properties.horas.rich_text[0].text.content,
-    "Descriçâo": ticket.properties.Descrição.rich_text[0].text.content
+    "Descriçâo": ticket.properties.Descrição.rich_text[0].text.content,
+    "PGTO": ticket.properties.PGTO.rich_text[0].text.content,
+
   }
 
   tickets.push(ticketProperties)
