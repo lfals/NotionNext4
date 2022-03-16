@@ -4,24 +4,24 @@ import { capitalizeFirstLetter, getAllTickets } from './helpers';
 @Injectable()
 export class AppService {
 
-  
+
   async getAll() {
-  const tickets = await getAllTickets()
-  return tickets;
+    const tickets = await getAllTickets()
+    return tickets;
   }
 
   async getAllByMonth(month) {
-    
+
     const filteredTicket = []
     const tickets = await getAllTickets()
     const capitalizeMonth = capitalizeFirstLetter(month)
 
 
     tickets.map(ticket => {
-      if(ticket.Mês == capitalizeMonth)
+      if (ticket.month == capitalizeMonth)
         filteredTicket.push(ticket)
     })
-    
+
     return filteredTicket
   }
 
@@ -32,10 +32,12 @@ export class AppService {
     const capitalizeMonth = capitalizeFirstLetter(company)
 
     tickets.map(ticket => {
-      if(ticket.Cliente == capitalizeMonth)
+      console.log(ticket.client, capitalizeMonth);
+      if (ticket.client == capitalizeMonth)
+
         filteredTicket.push(ticket)
     })
-    
+
     return filteredTicket
   }
 
@@ -47,10 +49,10 @@ export class AppService {
     const capitalizeMonth = capitalizeFirstLetter(month)
 
     tickets.map(ticket => {
-      if(ticket.Cliente == capitalizeName && ticket.Mês == capitalizeMonth)
+      if (ticket.client == capitalizeName && ticket.month == capitalizeMonth)
         filteredTicket.push(ticket)
     })
 
-      return filteredTicket
+    return filteredTicket
   }
 }
